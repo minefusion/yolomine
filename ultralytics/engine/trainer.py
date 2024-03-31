@@ -330,6 +330,9 @@ class BaseTrainer:
         epoch = self.start_epoch
         while True:
             self.epoch = epoch
+            if self.epoch == self.epochs // 2 and (not self.resume):
+                raise ValueError("Interrupting training!")
+
             self.run_callbacks("on_train_epoch_start")
             self.model.train()
             if RANK != -1:
