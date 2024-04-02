@@ -267,6 +267,7 @@ def convert_coco(
 
         # Create image dict
         images = {f'{x["id"]:d}': x for x in data["images"]}
+        #print(len(images))
         # Create image-annotations dict
         imgToAnns = defaultdict(list)
         for ann in data["annotations"]:
@@ -296,6 +297,9 @@ def convert_coco(
                     continue
 
                 cls = coco80[ann["category_id"] - 1] if cls91to80 else ann["category_id"] - 1  # class
+                #TODO autotmine
+                cls = ann["category_id"]
+                
                 box = [cls] + box.tolist()
                 if box not in bboxes:
                     bboxes.append(box)
