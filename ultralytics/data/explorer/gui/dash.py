@@ -51,6 +51,7 @@ def init_explorer_form():
         "yolov8m-pose.pt",
         "yolov8l-pose.pt",
         "yolov8x-pose.pt",
+        "automine-2d.pt"
     ]
     with st.form(key="explorer_init_form"):
         col1, col2 = st.columns(2)

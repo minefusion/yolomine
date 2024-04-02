@@ -1,0 +1,37 @@
+# automine dataset
+# Documentation: https://automine.cc
+# Example usage: yolo train data=./automine/automine-2d.yaml
+# parent
+# ├── ultralytics
+# └── datasets
+#     └── automine-2d--images/lables  ← downloads here (19 GB)
+
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+
+## lables coco to yolo
+# The https://github.com/ultralytics/COCO2YOLO repo
+# contains code to convert JSON datasets into YOLO (darknet) format. 
+
+path: ../datasets/automine-2d # dataset root dir
+train: images/train2017 # train images (relative to 'path') 3251 images
+val: images/train2017 # val images (relative to 'path') 866 images
+test: images/test2017  # test images (optional) 1423 images
+
+# Classes
+names:
+  0: Wide-Body-Truck
+  1: Mining-Truck
+  2: Pushdozer
+  3: Civilian-Vehicles
+  4: Excavator/top
+  5: Excavator/bottom
+  6: Trailer
+  7: Tractor
+  8: water_car
+  9: Track
+  10: bus
+  11: Pedestrian
+
+# Download script/URL (optional)
+#download: https://automine.cc
